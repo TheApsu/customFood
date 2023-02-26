@@ -1,0 +1,24 @@
+<div class="container-section-name">
+  <h4 class="section-title"> {{ sectionName }} </h4>
+</div>
+<swiper 
+  #slides 
+  [config]="slidesOpt" 
+  class="mySwiper"
+  (slideChange)="slideChange($event)"
+>
+  <ng-template *ngFor="let category of categories; let i = index" swiperSlide>
+    <app-categories
+      class="max-wd"
+      [category]="category"
+    ></app-categories>
+  </ng-template>
+  <!-- <ng-template swiperSlide>
+    <div class="d-flex ion-justify-content-center ion-align-items-center">
+      <ion-spinner name="crescent"></ion-spinner>
+      <ion-text class="ion-margin-start">
+        Cargando...
+      </ion-text>
+    </div>
+  </ng-template> -->
+</swiper>

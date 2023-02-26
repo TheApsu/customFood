@@ -1,0 +1,26 @@
+.searchbar-container{
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  background: var(--input-bg);
+  align-items: center;
+  padding: 2px 5px;
+  color: #000;
+  .button-search, .button-search-container{
+    width: 35px;
+    height: 35px;
+  }
+  .button-search{
+    background: var(--ion-color-primary);
+    border-radius: 100%;
+    .button-search-container{
+      --padding-top: 8px;
+      --padding-end: 8px;
+      --padding-bottom: 8px;
+      --padding-start: 8px;
+      ion-icon{
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.favorite-card{
+  border-radius: .5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+  .favorite-header-icon-business, .favorite-product-img{
+    border-radius: .5rem;
+    overflow: hidden;
+  }
+  .favorite-header{
+    border-bottom: 1px solid #ccc;
+    padding: .5rem 1rem;
+    
+    .favorite-header-name{
+      padding-left: 1rem;
+      font-weight: bold;
+    }
+  }
+  .favorite-product{
+    .calification{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div [ngClass]="{'container_locations': countries?.length > 1}">
+  <div class="d-flex d-center ion-padding-top" *ngIf="!countries?.length && !noResults">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+  <h2 *ngIf="countries?.length" class="ion-padding ion-text-start"> {{ text }} </h2>
+  <ion-list *ngIf="countries?.length" class="transparent fadeIn ion-padding-bottom">
+    <ion-item
+      (click)="setLocation(country)" 
+      mode="md" 
+      class="transparent"
+      button 
+      *ngFor="let country of countries; trackBy: trackByItems"
+    >
+      <ion-icon slot="start" name="location-outline"></ion-icon>
+      <ion-label text-wrap>
+        {{ country?.name }}
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+  <ion-list *ngIf="noResults">
+    <ion-item>
+      <ion-label text-wrap>
+        No hay resultados para tu búsqueda.
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll #infiniteScroll [disabled]="disabled" threshold="25%" position="bottom" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>

@@ -1,0 +1,11 @@
+<h4 class="ion-padding-start section-title">
+  {{ sectionName }}
+</h4>
+<ion-slides [options]="slidesOpts">
+  <ion-slide *ngFor="let a of [1,1,1,1]; let i = index">
+    <app-square-card
+      [id]="i"
+      class="max-wd"
+    ></app-square-card>
+  </ion-slide>
+</ion-slides>

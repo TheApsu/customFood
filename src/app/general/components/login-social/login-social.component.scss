@@ -1,0 +1,30 @@
+.header-card{
+  padding-top: 2.5rem;
+}
+.fbButton{
+  --background: #1877f1;
+}
+.googleBtn, .mfButton{
+  --background: #fff;
+  --color: #000;
+  --border-color: #000;
+  --border-width: 1px;
+}
+
+.buttons{
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+  text-transform: initial;
+  font-weight: bold;
+  ion-icon{
+    font-size: 1.5rem;
+  }
+}
+
+ion-button{
+  margin-bottom: 0.8rem;
+  --padding-top: 1.3rem;
+  --padding-bottom: 1.3rem;
+}

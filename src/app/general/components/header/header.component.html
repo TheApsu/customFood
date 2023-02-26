@@ -1,0 +1,13 @@
+<ion-header *ngIf="position" class="ion-no-border">
+  <ion-toolbar class="toolbar ion-padding-end">
+    <ion-buttons slot="start">
+      <ion-button (click)="backBtn.emit()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <app-searchbar
+      [search]="search"
+      (emitValue)="emitValue.emit($event)"
+    ></app-searchbar>
+  </ion-toolbar>
+</ion-header>

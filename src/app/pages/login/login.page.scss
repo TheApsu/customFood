@@ -1,0 +1,38 @@
+.container_content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  .container{
+    background-color: #fff;
+    overflow: hidden;
+    .avatar_container{
+      text-align: center;
+      padding: 0rem 0 1.2rem 0;
+      .avatar{
+        margin: auto;
+        margin-bottom: .5rem;
+      }
+    }
+    .card_container{
+      height: 100%;
+      border-radius: 1.2rem 1.2rem 0 0;
+      .header-card{
+        padding-top: 2.5rem;
+      }
+    }
+  }
+}
+
+.disAppear{
+  animation: disAppearSocial ease-in-out .3s;
+  animation-delay: 150ms;
+}
+
+@keyframes disAppearSocial {
+  from{
+    opacity: 1;
+  }to{
+    opacity: 0;
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693756409209",
+    "firebase_url": "https://custom-food-ryr-default-rtdb.firebaseio.com",
+    "project_id": "custom-food-ryr",
+    "storage_bucket": "custom-food-ryr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693756409209:android:00b6f32cc32d4002526ba8",
+        "android_client_info": {
+          "package_name": "com.customfood.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693756409209-t6n6m1hpdri15vpbiav1j3ospm0vckbq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.customfood.app",
+            "certificate_hash": "e38e6020e22f8494ffd419ba7ca6e8bbee440ce4"
+          }
+        },
+        {
+          "client_id": "693756409209-7dp5jafa4srha6g6tkknq9uj7pi99qn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcywc23yq5WvqIi6naNzGNs6tfv_-DQxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693756409209-7dp5jafa4srha6g6tkknq9uj7pi99qn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

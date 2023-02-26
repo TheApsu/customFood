@@ -1,0 +1,38 @@
+.list-user-form{
+  &:not(:has(.input-user-form.has-value)){
+    .item-user-form{
+      &:not(:has(.input-user-form.has-focus)){
+        .label-user-form{
+          transform: translateY(150%);
+        }
+      }
+    }
+  }
+  .label-user-form{
+    margin-left: 1rem;
+  }
+  .input-user-form{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color ease .3s;
+    --padding-top: 16px;
+    --padding-bottom: 8px;
+    --padding-start: 1rem;
+  }
+  .input-user-form.has-focus{
+    border-color: #ef8916;
+  }
+  .input-user-form.has-focus.ion-invalid.ion-touched{
+    border-color: var(--highlight-color-invalid);
+  }
+}
+
+.item-user-form{
+  .label-user-form{
+    z-index: 1000;
+    padding: 0 8px;
+    margin-left: 0.5rem;
+    width: fit-content;
+    background: #fff;
+  }
+}

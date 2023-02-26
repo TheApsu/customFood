@@ -1,0 +1,26 @@
+<app-app-header></app-app-header>
+<ion-content>
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="ion-padding">
+          <app-searchbar></app-searchbar>
+        </div>
+        <app-slides-card [sectionName]="'Categorias'"></app-slides-card>
+        <div>
+          <h4 class="section-title ion-padding-start">Negocios</h4>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col *ngFor="let business of businesses; let i = index" size="6">
+                  <app-business-card 
+                    [id]="i"
+                    [business]="business"
+                ></app-business-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>          
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

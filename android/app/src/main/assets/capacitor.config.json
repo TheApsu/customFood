@@ -1,0 +1,6 @@
+{
+	"appId": "com.customfood.app",
+	"appName": "customFood",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

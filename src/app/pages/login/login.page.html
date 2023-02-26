@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="container_content h-100">
+    <div class="container"
+      [ngStyle]="{'width':  type ? '100%' : ''}"
+    >
+      <div class="avatar_container">
+        <ion-avatar class="avatar">
+          <img src="https://img.freepik.com/vector-premium/logo-entrega-empresa_23-2147876885.jpg?w=2000" />
+        </ion-avatar>
+        <ion-text class="name_app">
+          CustomFood APP
+        </ion-text>
+      </div>
+      <ion-card class="ion-no-margin card_container h-100 noShadow">
+        <div
+          *ngIf="!type"
+          #socialComponent
+        >
+          <app-login-social
+            (loginWith$)="loginWith($event)"
+          ></app-login-social>
+        </div>
+        <div
+          #emailComponent
+          *ngIf="type === 'email'"
+        >
+          <app-login-email (backBtn)="loginWith($event)"></app-login-email>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

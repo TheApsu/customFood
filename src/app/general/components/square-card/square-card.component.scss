@@ -1,0 +1,25 @@
+.cardProduct{
+  border-radius: .5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+  .title{
+    font-weight: bold;
+    font-size: .9rem;
+  }
+  .presentation{
+    font-size: .8rem;
+    margin-top: 0.4rem;
+  }
+  .price{
+    font-weight: bold;
+    font-size: .8rem;
+  }
+  .imgProduct{
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .content{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

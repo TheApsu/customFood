@@ -1,0 +1,18 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-item (click)="changeLocation()" lines="none" class="ion-margin-start" color="primary">
+      <ion-icon class="icon-location" slot="start" name="chevron-down-outline"></ion-icon>
+      <ion-label class="label-location">
+        {{ location?.country?.name }}, {{ location?.state?.name }}, {{ location?.city?.name }}
+      </ion-label>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="megaphone-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

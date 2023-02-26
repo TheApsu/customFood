@@ -24,3 +24,88 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "~swiper/css";
+@import "~swiper/css/grid";
+
+* {
+  font-family: 'Muli', sans-serif !important;
+}
+
+h1, h2, h3,h4,h5,h6{
+  color: #272727;
+}
+
+.section-title{
+  padding-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.max-hg{
+  height: 100% !important;
+}
+
+.registerType{
+  .alert-button-group{
+    justify-content: space-evenly !important;
+  }
+}
+
+.detailProduct{
+  background: rgba(255, 255, 255, 0);
+  --background: rgba(255, 255, 255, 0)
+}
+
+.max-wd{
+  width: 100% !important;
+}
+
+.h-auto{
+  height: auto;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.d-center{
+  justify-content: center;
+}
+
+.transparent{
+  background: transparent;
+  --background: transparent;
+}
+
+.initial{
+  text-transform: initial;
+}
+
+.noShadow{
+  box-shadow: none;
+  --box-shadow: none;
+}
+
+// ion-content{
+//   --background: #f1f1f1;
+// }
+
+.h-100{
+  height: 100%;
+}
+
+.label{
+  margin-bottom: .5rem !important;
+}
+
+.input{
+  --background: var(--input-bg) !important;
+  --border-radius: 5px;
+  --overflow: hidden;
+  --padding-start: 1rem !important;
+  border-radius: 5px;
+}

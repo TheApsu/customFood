@@ -1,0 +1,19 @@
+<ion-card class="favorite-card">
+  <ion-header class="favorite-header ion-no-border">
+    <ion-toolbar>
+      <ion-thumbnail slot="start" class="favorite-header-icon-business">
+        <img [src]="image"/>
+      </ion-thumbnail>
+      <h5 class="favorite-header-name">Restaurante Pizzas Antonio</h5>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card-content class="ion-no-padding">
+    <ion-list>
+      <app-favorite-product
+        *ngFor="let product of data.products"
+        [id]="product.id"
+        [storeId]="data.storeId"
+      ></app-favorite-product>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

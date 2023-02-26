@@ -1,0 +1,37 @@
+<ion-toolbar class="transparent ion-padding-start">
+  <ion-buttons slot="start">
+    <ion-button (click)="backBtn.emit(false)" class="initial">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      Regresar
+    </ion-button>
+  </ion-buttons>
+  <ion-text color="primary">
+  </ion-text>
+</ion-toolbar>
+<ion-card-content>
+  <form action="" autocomplete="off">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-label class="label" position="floating">Email</ion-label>
+        <ion-input autocomplete="off" class="input" inputmode="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="label" position="floating">Contraseña</ion-label>
+        <ion-input autocomplete="off" class="input" type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-text-center ion-margin-top">
+      <ion-button class="noShadow ion-text-capitalize" color="primary">
+        Continuar
+      </ion-button>
+    </div>
+    <div class="registerButton ion-text-center">
+      <ion-text>
+        ¿No tienes una cuenta?
+      </ion-text>
+      <ion-button class="ion-text-capitalize" fill="clear">
+        Registrate
+      </ion-button>
+    </div>
+  </form>
+</ion-card-content>

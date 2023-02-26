@@ -1,0 +1,26 @@
+.card-item{
+  border-radius: .5rem;
+  box-shadow: 0 3px 7px rgb(0 0 0 / 20%);
+  margin: .6rem .5rem;
+  // .card-item-image-local{
+  //   aspect-ratio: 20/9;
+  //   object-fit: cover;
+  // }
+  .container-img{
+    position: relative;
+    .image-thumbnail-container{
+      position: absolute;
+      border-radius: .5rem;
+      overflow: hidden;
+      bottom: 0.2rem;
+      left: 0.2rem;
+    }
+  }
+  .information-item-container{
+    // --padding-start: 10px;
+  }
+  .califitation{
+    margin-left: 5px;
+    font-size: .8rem;
+  }
+}

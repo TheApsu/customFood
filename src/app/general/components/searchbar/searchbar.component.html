@@ -1,0 +1,14 @@
+<div class="searchbar-container">
+  <ion-input 
+    class="ion-padding-start"
+    type="text" 
+    [(ngModel)]="search" 
+    (ionChange)="prepareSearch()" 
+    placeholder="Buscar..."
+  ></ion-input>
+  <ion-buttons class="button-search" slot="end">
+    <ion-button class="button-search-container" color="primary">
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</div>

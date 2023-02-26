@@ -1,0 +1,57 @@
+<app-header
+  (emitValue)="searchValue = $event"
+  (backBtn)="backBtn()"
+  [position]="position"
+  [search]="searchValue"
+></app-header>
+
+<ion-slides mode="md" class="max-hg" #slide [options]="slideOpts">
+  <ion-slide>
+    <app-welcome
+      (moveSwipe)="doSwipe('next')"
+    ></app-welcome>
+  </ion-slide>
+  <ion-slide class="max-wd max-hg">
+    <ion-content>
+      <div class="max-wd">
+        <app-locations class="max-wd" 
+          [uri]="'countries'"
+          [text]="'Selecciona tu país'"
+          [search]="searchValue"
+          (emitLocation)="setCountry($event)"
+        ></app-locations>
+      </div>
+    </ion-content>
+  </ion-slide>
+  <ion-slide class="max-wd max-hg">
+    <ion-content>
+      <div class="max-wd">
+        <app-locations class="max-wd" 
+          *ngIf="location.country.name"
+          [text]="'¿En dónde te encuentras?'"
+          [isState]="true"
+          (emitLocation)="setState($event)"
+          [search]="searchValue"
+          [uri]="location.country.name"
+        ></app-locations>
+      </div>
+    </ion-content>
+  </ion-slide>
+  <ion-slide class="max-wd max-hg">
+    <ion-content>
+      <div class="max-wd">
+        <app-locations
+          *ngIf="location.state.name"
+          [state]="location.state.name"
+          [text]="'Estás a un paso de terminar. Selecciona tu ciudad'"
+          [country]="location.country.name"
+          [isCity]="true"
+          class="max-wd"
+          [search]="searchValue"
+          (emitLocation)="continue($event)"
+          [uri]="location.state.name"
+        ></app-locations>
+      </div>
+    </ion-content>
+  </ion-slide>
+</ion-slides>

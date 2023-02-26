@@ -1,0 +1,27 @@
+<form 
+  [formGroup]="userForm" 
+  (ngSubmit)="saveUser()"
+>
+  <ion-list >
+    <div class="list-user-form" *ngFor="let field of form">
+      <ion-item 
+        lines="none" 
+        class="item-user-form"
+      >
+        <ion-label class="label-user-form" position="floating">
+          {{ field.label }}
+        </ion-label>
+        <ion-input 
+          [formControlName]="field?.control"
+          class="input-user-form" 
+          type="text"
+        ></ion-input>
+      </ion-item>
+    </div>
+    <div class="ion-padding">
+      <ion-button type="submit" expand="block" class="noShadow">
+        Guardar
+      </ion-button>
+    </div>
+  </ion-list>
+</form>
