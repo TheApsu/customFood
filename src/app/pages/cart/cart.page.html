@@ -1,9 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-centered-header
+  [name]="'Mi Pedido'"
+></app-centered-header>
 <ion-content>
-
+  <ion-item class="store-item transparent" lines="none">
+    <ion-thumbnail slot="start" class="store-item_img">
+      <img [src]="store?.imgUrlLogo" />
+    </ion-thumbnail>
+    <ion-label class="boldText">
+      {{ store?.full_name }}
+    </ion-label>
+  </ion-item>
+  <ion-grid fixed class="grid-cart" *ngIf="store">
+    <ion-row>
+      <ion-col size="12">
+        <h2 class="section-title">Vas a disfrutar de:</h2>
+        <app-cart-card
+          [data]="store"
+          (removeProductEmitter)="getStore()"
+        ></app-cart-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-footer class="footer-cart ion-text-center">
+    <div class="container-toolbar">
+      <ion-toolbar class="transparent">
+        <ion-item class="transparent">
+          <ion-label class="total-price-footer">
+            <h2>Productos: <b class="ion-float-right"> ${{ store | amountCart: true | number:'1.1-2' }} </b> </h2>
+            <h2> Envio: <b class="ion-float-right">${{ 20 | number:'1.1-2' }}</b>  </h2>
+          </ion-label>
+        </ion-item>
+      </ion-toolbar>
+      <ion-toolbar class="transparent">
+        <ion-item lines="none" class="transparent">
+          <ion-label class="total-price-footer">
+            <h2 class="boldText total">Total: <b class="ion-float-right"> ${{ 100 | number:'1.1-2' }} </b> </h2>
+          </ion-label>
+        </ion-item>
+      </ion-toolbar>
+    </div>
+    <ion-button 
+      size="large" 
+      expand="block"
+      (click)="continue()" 
+      class="noShadow btn-continue ion-margin-top"
+    >
+      Procesar
+    </ion-button>
+  </ion-footer>
 </ion-content>

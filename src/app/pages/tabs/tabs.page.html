@@ -1,8 +1,14 @@
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
+<ion-tabs >
+  <ion-tab-bar slot="bottom" [translucent]="true">
     <ion-tab-button *ngFor="let tabBtn of tabBtns" [tab]="tabBtn.tab">
       <ion-icon [name]="tabBtn.name + '-outline'"></ion-icon>
       <ion-label> {{ tabBtn.btn }} </ion-label>
+      <ion-badge *ngIf="tabBtn.tab === 'favorite'" color="primary" mode="ios">
+        {{ favoriteSv.total }}
+      </ion-badge>
+      <ion-badge *ngIf="tabBtn.tab === 'cart'" color="primary" mode="ios">
+        {{ cartSv.cart | amountCart: false }}
+      </ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

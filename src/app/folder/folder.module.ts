@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
-import { GeneralComponentsModule } from '../general/components/general-components.module';
+import { FolderComponentsModule } from './folder-components/folder-components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { GeneralComponentsModule } from '../general/components/general-component
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    GeneralComponentsModule
+    FolderComponentsModule
   ],
   declarations: [FolderPage]
 })

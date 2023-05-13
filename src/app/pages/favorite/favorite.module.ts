@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FavoritePageRoutingModule } from './favorite-routing.module';
 
 import { FavoritePage } from './favorite.page';
+import { FavoriteComponentsModule } from './favorite-components/favorite-components.module';
 import { GeneralComponentsModule } from 'src/app/general/components/general-components.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { GeneralComponentsModule } from 'src/app/general/components/general-comp
     FormsModule,
     IonicModule,
     FavoritePageRoutingModule,
+    FavoriteComponentsModule,
     GeneralComponentsModule
   ],
   declarations: [FavoritePage]

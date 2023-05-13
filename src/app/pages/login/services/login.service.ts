@@ -3,7 +3,7 @@ import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
 import { NavController, Platform } from '@ionic/angular';
 import { NewUser, User } from '../../../interface/interfaces';
 import { initializeApp } from 'firebase/app';
-import { signInWithPopup, getAuth, GoogleAuthProvider } from 'firebase/auth'
+import { signInWithPopup, getAuth, GoogleAuthProvider, signInWithCredential } from 'firebase/auth'
 import { environment } from 'src/environments/environment';
 import { StorageService } from 'src/app/general/services/storage.service';
 import { UiService } from 'src/app/general/services/ui.service';
@@ -50,9 +50,14 @@ export class LoginService {
         'webClientId': '693756409209-7dp5jafa4srha6g6tkknq9uj7pi99qn5.apps.googleusercontent.com',
         'offline': true
       });
-      const currentUser = await this.auth.currentUser.getIdToken(true);
-      success.idToken = currentUser;
-      return await this.login(success);
+      const credential = GoogleAuthProvider.credential(success.idToken);
+      const result = await signInWithCredential(this.auth, credential);
+      const user = await this.login(result.user);
+      // const currentUser = await this.auth.currentUser.getIdToken(true);
+      // success.idToken = currentUser;
+      user.tokenId = success.idToken;
+      console.log(user);
+      return user;
     }catch(err){
       console.error(err);
     }
@@ -62,10 +67,17 @@ export class LoginService {
     try{
       const result = await signInWithPopup(this.auth, this.googleProvider);
       const user = await this.login(result.user);
+      console.log(user);
+      // signInWithCredential(this.auth, result)
+      // const loginCred = 
+      // console.log();
+      // result.user.
       // this.auth.currentUser.refreshToken;
-      const currentUser = await this.auth.currentUser.getIdToken(true);
-      console.log(currentUser);
-      user.tokenId = currentUser
+      // const currentUser = await this.auth.currentUser.getIdToken(true);
+      // console.log(currentUser);
+      // user.tokenId = currentUser
+      user.tokenId = await result.user.getIdToken();
+      // this._user = user;
       return user;
     }catch(err){
       console.error(err);
@@ -74,19 +86,20 @@ export class LoginService {
 
   async login(user){
     const data: NewUser = {
-      email: user.email,
-      displayName: user.displayName,
+      // email: user.email,
+      // displayName: user.displayName,
       uid: user.uid || user.userId,
-      signature: 'RyR'
+      signature: 'RyR',
+      email: user.email,
     }
     return data;
   }
 
   async register(newRegister: NewUser){
     try{
-      this.storageSv.setLocalStorage(true, 'user', newRegister);
+      this.updateUserInfo(newRegister);
       if(newRegister.newUser){
-        this.navCtrl.navigateForward('carrousel');
+        this.navCtrl.navigateForward('tabs/account');
       }else{
         this.navCtrl.navigateForward('home');
       }
@@ -109,4 +122,7 @@ export class LoginService {
     }
   }
 
+  updateUserInfo(newRegister){
+    this.storageSv.setLocalStorage(true, 'user', newRegister);
+  }
 }

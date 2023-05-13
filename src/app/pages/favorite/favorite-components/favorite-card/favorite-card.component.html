@@ -1,0 +1,21 @@
+<ion-card class="favorite-card">
+  <ion-header class="favorite-header ion-no-border">
+    <ion-toolbar>
+      <ion-thumbnail slot="start" class="favorite-header-icon-business">
+        <img [src]="data.businessImg"/>
+      </ion-thumbnail>
+      <h5 class="favorite-header-name">
+        {{ data.businessName }}
+      </h5>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card-content class="ion-no-padding">
+    <ion-list>
+      <app-favorite-product
+        *ngFor="let product of data.products"
+        [product]="product"
+        [business]="data"
+      ></app-favorite-product>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

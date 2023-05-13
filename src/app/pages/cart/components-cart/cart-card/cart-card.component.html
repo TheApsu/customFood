@@ -1,0 +1,10 @@
+<ion-card class="favorite-card">
+  <ion-card-content class="ion-no-padding">
+    <app-cart-card-product
+      *ngFor="let product of data.productsToBuy; trackBy: trackByItems"
+      [product]="product"
+      [store]="data"
+      (removeProductEmitter)="emitRemove($event)"
+    ></app-cart-card-product>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,21 @@
+<div class="content">
+  <ion-card class="card-item" (click)="openBusiness()">
+    <div class="container-img">
+      <ion-img class="card-item-image-local" [src]="business.imgUrlMain"></ion-img>
+    </div>
+    <ion-card-content class="ion-no-padding">
+      <ion-item lines="none" class="information-item-container">
+        <ion-label>
+          <h2>{{ business?.short_name }}</h2>
+          <p>{{ business?.direccion.city.city }}</p>
+        </ion-label>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label>Calificación</ion-label>
+        <ion-label slot="end" class="califitation">
+          {{ business.rating }} <ion-icon color="primary" name="star"></ion-icon>
+        </ion-label>
+      </ion-item> -->
+    </ion-card-content>
+  </ion-card>
+</div>

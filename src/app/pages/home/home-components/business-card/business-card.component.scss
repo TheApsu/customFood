@@ -1,0 +1,19 @@
+.card-item{
+  border-radius: .5rem;
+  box-shadow: 0 3px 7px rgb(0 0 0 / 20%);
+  margin: .6rem .5rem;
+  .container-img{
+    aspect-ratio: 4/3;
+    position: relative;
+    .card-item-image-local{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .califitation{
+    margin-left: 5px;
+    font-size: .8rem;
+  }
+}

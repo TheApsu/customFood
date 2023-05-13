@@ -44,12 +44,13 @@ const routes: Routes = [
           }
         ]
       },
+     
       {
-        path: 'cart',
+        path: 'resume',
         children: [
           {
             path: '',
-            loadChildren: () => import('../cart/cart.module').then( m => m.CartPageModule)
+            loadChildren: () => import('../resume/resume.module').then( m => m.ResumePageModule)
           }
         ]
       },

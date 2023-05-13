@@ -1,0 +1,11 @@
+
+.toolbar{
+  --background: var(--ion-color-primary);
+  color: #fff;
+  .title{
+    text-align: center;
+    padding-right: 4.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}

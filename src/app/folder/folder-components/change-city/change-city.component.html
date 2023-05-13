@@ -1,0 +1,18 @@
+<div class="cities" >
+ 
+  <ion-item lines="none">
+    <ion-label>
+      <h2 class="boldText">Ubicación registrada</h2>
+      <p>
+        {{ direction?.city?.country }}, 
+        {{ direction?.city?.admin_name }}, 
+        {{ direction?.city?.city }}
+      </p>
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button class="change-btn" (click)="changeRegion()">
+        <ion-icon slot="icon-only" [name]="changeIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+</div>

@@ -1,0 +1,40 @@
+.store-item{
+  padding: .5rem;
+  .store-item_img{
+    border-radius: .5rem;
+    overflow: hidden;
+  }
+}
+
+.grid-cart{
+  .section-title{
+    font-size: 1rem !important;
+  }
+}
+
+.footer-cart{
+  // position: fixed;
+  .container-toolbar{
+    background-color: #efefef;
+    border-radius: 0.5rem;
+    border: 1px solid #272727;
+  }
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  .total-price-footer{
+    h2{
+      font-size: 1rem;
+    }
+    p{
+      font-size: 1rem;
+    }
+    .total{
+      font-size: 1.2rem;
+    }
+  }
+  .btn-continue{
+    font-size: 1.2rem;
+    text-transform: none;
+  }
+}

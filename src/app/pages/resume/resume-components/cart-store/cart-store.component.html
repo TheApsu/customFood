@@ -1,0 +1,15 @@
+<ion-item 
+  detail 
+  button 
+  class="product-store" 
+  lines="none"
+  [routerLink]="['/tabs/resume/cart', store.businessId]"
+>
+  <ion-thumbnail class="product-store_thumb" slot="start">
+    <img [src]="store.imgUrlLogo" />
+  </ion-thumbnail>
+  <ion-label>
+    <h2 class="boldText"> {{ store.full_name }} </h2>
+    <p> {{ store.productsToBuy.length }} Productos agregados </p>
+  </ion-label>
+</ion-item>

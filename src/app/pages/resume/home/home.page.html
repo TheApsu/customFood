@@ -1,0 +1,27 @@
+<app-centered-header
+  [name]="'Resumen'"
+></app-centered-header>
+
+<ion-content>
+
+  <ion-grid fixed [ngClass]="{'max-hg': !cartSv.cart.length}">
+    <ion-row class="row-cart" [ngClass]="{'max-hg': !cartSv.cart.length}">
+      <ng-template #stores>
+ 
+        <ion-col size="12" *ngFor="let store of cartSv.cart">
+          <ion-card class="card-store">
+            <app-cart-store
+              [store]="store"
+            ></app-cart-store>
+          </ion-card>
+        </ion-col>
+       
+      </ng-template>
+
+      <ion-col class="ion-text-center" size="12" *ngIf="!cartSv.cart.length; else stores">
+        <ion-label class="warn">No tienes ordenes pendientes.</ion-label>
+      </ion-col>
+     
+    </ion-row>
+  </ion-grid>
+</ion-content>

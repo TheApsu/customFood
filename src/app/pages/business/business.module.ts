@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BusinessPageRoutingModule } from './business-routing.module';
 
 import { BusinessPage } from './business.page';
-import { GeneralComponentsModule } from 'src/app/general/components/general-components.module';
+import { ComponentsBusinessModule } from './componentsBusiness/components-business.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { GeneralComponentsModule } from 'src/app/general/components/general-comp
     FormsModule,
     IonicModule,
     BusinessPageRoutingModule,
-    GeneralComponentsModule
+    ComponentsBusinessModule
   ],
   declarations: [BusinessPage]
 })

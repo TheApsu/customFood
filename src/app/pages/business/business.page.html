@@ -1,38 +1,41 @@
 <ion-content>
-  <app-app-header></app-app-header>
   <ion-grid fixed class="ion-no-padding">
-    <ion-row>
-      <ion-col size="12" class="ion-no-padding">
+    <ion-row *ngIf="business">
+      <ion-col size="12" class="col-store-front">
+        <div class="backBtn">
+          <ion-buttons class="btn">
+            <ion-back-button mode="md" defaultHref="/tabs/home"></ion-back-button>
+          </ion-buttons>
+          <!-- <ion-buttons>
+            <ion-button (click)="back()" class="btn">
+              <ion-icon slot="start" name="chevron-back"></ion-icon>
+            </ion-button>
+          </ion-buttons> -->
+        </div>
         <div class="storeFront">
-          <img [src]="image" class="imgFront">
-          <ion-label text-wrap class="infoStore max-wd">
-            <h2>Pizzas Antonio</h2>
-            <p>
-              San Cristobal - Pueblo nuevo 
-              <span class="ion-float-right calification">
-                4.7
-                <ion-icon color="primary" name="star"></ion-icon>
-              </span>
+          <img [src]="business.imgUrlMain" class="imgFront">
+          <ion-thumbnail class="thumb-store">
+            <img [src]="business.imgUrlMain" />
+          </ion-thumbnail>
+        </div>
+        <div class="info-store">
+          <ion-label text-wrap class="infoStore">
+            <h2 class="boldText infoStore_name"> {{ business.full_name }} </h2>
+            <p class="calification">
+              <ion-icon class="icon-star" name="star"></ion-icon> 4.7
             </p>
           </ion-label>
         </div>
       </ion-col>
-      <ion-col size="12">
-        <app-business-product-section
-          [sectionName]="'Los mas vendidos'"
-        ></app-business-product-section>
-      </ion-col>
-      <ion-col size="12">
-        <app-business-product-section
-          [sectionName]="'Promociones'"
-        ></app-business-product-section>
-      </ion-col>
+
       <ion-col size="12" class="container-products">
         <h4 class="ion-padding-start section-title">Todos los productos</h4>
-        <div *ngFor="let a of products; let i = index">
+        <div 
+          *ngFor="let product of products; let i = index"
+        >
           <app-product-card
-            [id]="i"
-            [storeId]="storeId"
+            [product]="product"
+            [business]="business"
           ></app-product-card>
         </div>
       </ion-col>

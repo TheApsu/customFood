@@ -9,8 +9,8 @@
               <img [src]="defaultImg" />
             </ion-avatar>
             <ion-label>
-              <h2>Ricardo Duque</h2>
-              <p>apsu@gmail.com</p>
+              <h2> {{ loginSv.user?.nombres }} </h2>
+              <p> {{ loginSv.user?.email }} </p>
             </ion-label>
           </ion-item>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">

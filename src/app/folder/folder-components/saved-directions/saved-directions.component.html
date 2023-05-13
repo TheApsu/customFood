@@ -1,0 +1,51 @@
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item-divider class="item-divider">
+        <ion-icon class="location-icon" color="primary" slot="start" name="location"></ion-icon>
+        <ion-label class="location-text">Direcciones</ion-label>
+        <ion-button 
+          slot="end" 
+          class="noShadow btn-add-direction"
+          (click)="addOrEditNewDirection()" 
+          expand="block" 
+        >
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-item-divider>
+    </ion-col>
+    <ion-col 
+      size="12" 
+      *ngFor="let direction of directions; let i = index; trackBy: trackByItems">
+      <ion-card 
+        class="card-direction"
+        (click)="addOrEditNewDirection(direction, i)"
+      >
+        <ion-card-header>
+          <ion-card-title class="card-direction_direction-name">
+            {{ direction?.nombreDireccion }}
+          </ion-card-title>
+          <ion-card-subtitle class="boldText card-direction_subtitle">
+            <ion-thumbnail class="card-direction_subtitle_isoImg">
+              <img
+                [src]="direction.flagImg[0]"
+                [srcset]="direction.flagImg[1]"
+                width="16"
+                height="12"
+                alt="South Africa"
+              >
+            </ion-thumbnail>
+            {{ direction?.city?.iso2 }}, {{ direction?.city?.admin_name }}, {{ direction?.city?.city }}
+          </ion-card-subtitle>
+          
+        </ion-card-header>
+        <ion-card-content>
+          <b>Dirección:</b> {{ direction?.direccionText }}
+          <br>
+          <br>
+          <b>Recibe:</b> {{ direction?.nombrePersonaRecibe }}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

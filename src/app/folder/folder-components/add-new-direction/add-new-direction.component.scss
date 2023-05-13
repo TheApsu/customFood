@@ -1,0 +1,25 @@
+.header-direction{
+  --background: var(--ion-color-primary);
+  background: var(--ion-color-primary);
+  position: sticky;
+  top: 0;
+  .header-direction_toolbar{
+    --background: transparent;
+    color: #fff;
+  }
+  .save-btn{
+    --color: #fff;
+  }
+}
+
+
+.city-header{
+  font-weight: bold;
+  padding-left: 1.4rem;
+  font-size: 1rem;
+}
+
+.save-button{
+  margin: 0 1rem;
+  margin-top: 1rem;
+}

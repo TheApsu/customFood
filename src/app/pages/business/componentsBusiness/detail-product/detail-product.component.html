@@ -1,0 +1,106 @@
+<ion-content class="transparent">
+  <div class="container_product" (scroll)="doEvent($event)">
+
+    <div 
+      class="product_info" 
+    >
+    <!-- [ngStyle]="{'background': background}" -->
+    <div class="product_image"
+    >
+      <div class="back-btn">
+        <div class="back-btn_contain">
+          <ion-buttons class="back-btn">
+            <ion-button color="input-bg" (click)="back()">
+              <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+        <div class="price">
+          <p class="ion-text-center price"> 
+            <span class="symbol">$</span>{{ product.price }} 
+          </p>
+        </div>
+        <div class="back-btn_contain">
+          <ion-buttons class="back-btn favoriteBtn">
+            <ion-button color="input-bg" (click)="addToFavorite()">
+              <ion-icon 
+                class="favorite-icon" 
+                slot="icon-only" 
+                [name]="favoriteIcon"
+              ></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </div>
+      <!-- [ngStyle]="{'opacity': opacity}" -->
+        <div class="product_image-container">
+          <div class="name-container">
+            <h2 class="ion-text-center name-product">
+              {{ product.nombre }}
+            </h2>
+          </div>
+          <div class="product_image-container-img">
+            <swiper [grabCursor]="true" class="mySwiper swiper">
+              <ng-template swiperSlide>
+                <img 
+                  class="image"
+                  [src]="product.imgUrl" 
+                >
+              </ng-template>
+              <ng-template swiperSlide>
+                <img 
+                  class="image"
+                  [src]="image" 
+                >
+              </ng-template>
+            </swiper>
+          </div>
+        </div>
+        <div class="cartBtns">
+          <div>
+            <app-add-btn
+              (emitAdd)="addCart($event)"
+            ></app-add-btn>
+          </div>
+        </div>
+      </div>
+    
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item lines="none" class="transparent">
+              <ion-label>
+                <h2 class="sections_info">
+                  Calificacion
+                </h2>
+                <p>
+                  {{ product.rating }} / 5
+                  <ion-icon name="star" color="primary"></ion-icon>
+                </p>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <!-- <ion-col size="12">
+            <ion-item lines="none" class="transparent">
+              <ion-label>
+                <h2 class="sections_info">Presentacion</h2>
+                <p>900g de carne</p>
+              </ion-label>
+            </ion-item>
+          </ion-col> -->
+          
+          <ion-col size="12">
+            <ion-item class="transparent" lines="none">
+              <ion-label text-wrap>
+                <h2 class="sections_info">Descripcion</h2>
+                <p>
+                  {{ product.descripcion }}
+                </p>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

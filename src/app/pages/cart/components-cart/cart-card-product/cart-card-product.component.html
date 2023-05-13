@@ -1,0 +1,32 @@
+<div class="card-product">
+  <ion-item 
+    lines="none" 
+    class="favorite-product"
+  >
+    <ion-thumbnail slot="start" class="favorite-product-img">
+      <ion-img [src]="product.imgUrl"></ion-img>
+    </ion-thumbnail>
+    <ion-label> 
+      <h2 class="boldText name">
+        {{ product.nombre }} 
+      </h2>
+      <p class="boldText">
+        ${{ product.price }}
+      </p>
+    </ion-label>
+  </ion-item>
+  
+  <div class="control-container">
+    <div class="control-amount">
+
+      <ion-button fill="clear" class="btn-control" (click)="add(false)">
+        <ion-icon slot="icon-only" [name]="removeIcon"></ion-icon>
+      </ion-button>
+      
+      <h2 class="amount"> {{ contador }} </h2>
+      <ion-button fill="clear" class="btn-control" (click)="add(true)">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container-btn">
+  <div class="container-btn_buttons">
+    <ion-button class="btn rest" (click)="setQuantity('rest')">
+      <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+    </ion-button>
+    <ion-note class="quantity">
+      {{ quantity }}
+    </ion-note>
+    <ion-button class="btn sum" (click)="setQuantity('sum')">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+    <ion-button 
+      class="btn addBtn ion-padding-start"
+      #addBtn
+      (click)="addToCart(addBtn, checkmark, iconAdd, txtAdd)"
+      [disabled]="!quantity"
+    >
+      <ion-icon
+        slot="icon-only" 
+        name="checkmark-outline"
+        class="checkmark"
+        #checkmark
+      ></ion-icon>
+      <ion-icon 
+        slot="start" 
+        name="cart" 
+        class="add"
+        #iconAdd
+      ></ion-icon>
+      <span class="add" #txtAdd
+      >
+        Agregar
+      </span>
+    </ion-button>
+  </div>
+  <ion-button class="btn cart-btn" expand="block" (click)="goCart()">
+    Ir a carrito
+  </ion-button>
+</div>

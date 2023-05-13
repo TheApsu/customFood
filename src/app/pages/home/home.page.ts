@@ -36,10 +36,9 @@ export class HomePage implements OnInit, OnDestroy {
   async getRestaurants(){
     const locationObs = this.locationSv.emitNewLocation.subscribe(res => {
       this.businesses = res;
-      console.log(res);
-      
+      console.log('res :>> ', res);
     })
-    await this.locationSv.getRestaurants();
+    await this.locationSv.getRestaurants(true);
     this.locationObs.add(locationObs);
   }
 

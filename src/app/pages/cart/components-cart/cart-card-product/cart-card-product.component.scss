@@ -1,0 +1,53 @@
+.card-product{
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding-right: .5rem;
+  .favorite-product{
+    --padding-start: .5rem;
+    .favorite-product-img{
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .name{
+      font-size: .8rem;
+    }
+
+  }
+
+  .control-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .control-amount{
+      display: flex;
+      justify-content: center;
+      margin: 0.5rem 0 1rem 0;;
+      align-items: center;
+      border-radius: 2rem;
+      background-color: #e9e9e9;
+      padding: 0 0.3rem;
+      .amount{
+        font-size: .7rem;
+        font-weight: bold;
+        padding: .5rem .8rem;
+      }
+      .btn-control{
+        height: fit-content;
+        --padding-end: 0;
+        --padding-start: 0;
+        color: #272727;
+        font-size: .6rem;
+        // border: 1px solid var(--ion-color-primary);
+        // --background: var(--ion-color-primary);
+
+      }
+    }
+
+  }
+  
+  .remove-btn{
+ 
+    transform: translateY(-0.8rem);
+  }
+}

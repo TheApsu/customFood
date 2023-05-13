@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AlertController, LoadingController, ModalController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +17,16 @@ export class UiService {
   constructor(
     private modalController: ModalController,
     private alertCtrl: AlertController,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private toastController: ToastController
   ) { }
 
-  async showModal(component, componentProps?, cssClass?){
+  async showModal(component, componentProps?, cssClass?, backdropDismiss?){
     const modal = await this.modalController.create({
       component,
       componentProps,
-      cssClass
+      cssClass,
+      backdropDismiss
     });
     await modal.present();
     const { data, role } = await modal.onDidDismiss();
@@ -33,15 +35,12 @@ export class UiService {
 
   async showAlert(okText?, cancelText?, header?, subHeader?, message?, cssClass?, backdropDismiss?){
     try{
-      let selectedValue = '';
       const buttons = [
       
         {
           text: okText,
           role: 'confirm',
-          handler: () => {
-            selectedValue = okText;
-          }
+          handler: () => {}
         }
       ];
       if(cancelText){
@@ -49,9 +48,7 @@ export class UiService {
           {
             text: cancelText,
             role: 'cancel',
-            handler: () => {
-              selectedValue = cancelText;
-            }
+            handler: () => { }
           },
         )
       }
@@ -64,19 +61,33 @@ export class UiService {
         cssClass
       });
       await alert.present();
-      const { data, role} = await alert.onDidDismiss();
+      const { data, role } = await alert.onDidDismiss();
       return { data, role };
+
     }catch(err){
       console.error(err);
       
     }
   }
 
-  async showLoading(){
+  async showLoading(message = 'Cargando...'){
     if(this._loading){
       await this._loading.dismiss();
     }
-    this._loading = await this.loadingController.create();
+    this._loading = await this.loadingController.create(
+      {
+        message
+      }
+    );
     await this._loading.present();
+  }
+
+  async showToast(message){
+    const toast = await this.toastController.create({
+      message,
+      duration: 4000
+    })
+    
+    await toast.present();
   }
 }

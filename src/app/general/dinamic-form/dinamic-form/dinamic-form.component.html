@@ -1,0 +1,17 @@
+<form [formGroup]="dinamicForm" *ngIf="dinamicForm">
+  <div class="list-user-form" *ngFor="let field of form">
+    <ion-item 
+      lines="none" 
+      class="item-user-form"
+    >
+      <ion-label class="label-user-form" position="floating">
+        {{ field.label }}
+      </ion-label>
+      <ion-input 
+        [formControlName]="field?.control"
+        [type]="field.type"
+        class="input-user-form" 
+      ></ion-input>
+    </ion-item>
+  </div>
+</form>

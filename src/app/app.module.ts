@@ -8,7 +8,12 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Plugins
+
 import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,11 +21,15 @@ import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    GooglePlus
+    GooglePlus,
+    InAppBrowser
   ],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoriteService } from 'src/app/services/favorite.service';
+import { CartService } from 'src/app/services/general/services/cart.service';
 
 @Component({
   selector: 'app-tabs',
@@ -23,13 +25,16 @@ export class TabsPage implements OnInit {
       btn: 'Favoritos'
     },
     {
-      tab: 'cart',
+      tab: 'resume',
       name: 'cart',
       btn: 'Carrito'
     },
   ]
 
-  constructor() { }
+  constructor(
+    public favoriteSv: FavoriteService,
+    public cartSv: CartService
+  ) { }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 <app-app-header></app-app-header>
 <ion-content>
-  <ion-grid fixed class="ion-no-padding">
+  <ion-grid fixed class="ion-no-padding animate__animated animate__fadeInUp">
     <ion-row>
       <ion-col size="12" class="ion-no-padding">
         <div class="ion-padding">
@@ -11,11 +11,15 @@
           <h4 class="section-title ion-padding-start">Negocios</h4>
             <ion-grid fixed>
               <ion-row>
-                <ion-col *ngFor="let business of businesses; let i = index" size="6">
+                <ion-col 
+                  *ngFor="let business of businesses; let i = index" 
+                  size="6"
+                  class="animate__animated animate__fadeIn"
+                >
                   <app-business-card 
-                    [id]="i"
+                    [id]="business._id"
                     [business]="business"
-                ></app-business-card>
+                  ></app-business-card>
                 </ion-col>
               </ion-row>
             </ion-grid>          
