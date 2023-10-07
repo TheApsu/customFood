@@ -24,7 +24,7 @@ export class SavedDirectionsComponent implements OnInit {
 
   getDirections(){
     const directions = this.loginSv.user.direcciones;
-    if(directions.length){
+    if(directions?.length){
       this.directions = directions.map(x => {
         const iso = x?.city?.iso2.toLocaleLowerCase() || '';
         x.flagImg = [

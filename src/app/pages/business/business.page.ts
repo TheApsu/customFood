@@ -31,7 +31,6 @@ export class BusinessPage implements OnInit {
     this.products = businessProducts;
     const business = await this.httpSv.get(`getABusiness/${this.locationSv.location.country.name}/${this.locationSv.location.state.name}/${this.storeId}`);
     this.business = business;
-    console.log('business :>> ', this.business);
   }
 
   back(){

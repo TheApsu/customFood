@@ -1,0 +1,27 @@
+<ion-list class="transparent">
+          
+  <ion-item 
+    lines="none" 
+    class="item-order" 
+    detail
+    button
+    *ngFor="let order of orders"
+    (click)="openOrder(order)"
+  >
+    <ion-label>
+      <h2>Orden 1</h2>
+      <p>Metodo: Transferencia</p>
+    </ion-label>
+    <ion-label slot="end">
+      <ion-chip>
+        Hace 10 min
+        <ion-icon name="time-outline"></ion-icon>
+      </ion-chip>
+    </ion-label>
+    <ion-label slot="end" class="ion-margin-end">
+      <h2>Total</h2>
+      <p>$10</p>
+    </ion-label>
+  </ion-item>
+
+</ion-list>

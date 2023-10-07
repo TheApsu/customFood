@@ -56,9 +56,13 @@ export class HttpService {
     })
   } 
 
-  async login(user){
+  async login(user, typeUser){
     return await this.post(`${this._url}/login`,
-      { ...user, typeUser: 'buyer', version: environment.version }, 
+      {
+        ...user, 
+        typeUser, 
+        version: environment.version 
+      },
       { Authorization: `bearer ${user.tokenId}` },
     )
   }

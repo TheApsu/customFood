@@ -24,6 +24,23 @@ export class CartService {
     private loginSv: LoginService
   ) { }
 
+  addCart(amount, product, business){
+
+    const products = {
+      productId: product._id,
+      amount
+    }
+    
+    this.addProduct(
+      { 
+        products: [ products ], 
+        business: business,
+      }, 
+      products
+    );
+
+  }
+
   async addProduct(data, product){
     const productToAdd = {
       iso2: this.locationSv.location.country.name,
@@ -67,6 +84,8 @@ export class CartService {
   }
 
   async removeProduct(productId, storeId){
+    console.log('productId :>> ', productId);
+    console.log('storeId :>> ', storeId);
     const store = this._cart.find(x => x.businessId === storeId);
     const body = {
       productId,

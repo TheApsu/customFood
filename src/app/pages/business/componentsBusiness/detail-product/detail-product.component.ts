@@ -31,7 +31,7 @@ export class DetailProductComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       const obj = { 
         _id: this.product._id, 
-        storeId: this.business._id, 
+        storeId: this.business.storeId, 
       }
       this.favoriteIcon = this.favoriteSv.verifyFavorite(obj);
     })
@@ -49,19 +49,7 @@ export class DetailProductComponent implements OnInit, AfterViewInit {
   }
 
   addCart(amount){
-
-    const products = {
-      productId: this.product._id,
-      amount
-    }
-    
-    this.cartSv.addProduct(
-      { 
-        products: [ products ], 
-        business: this.business,
-      }, 
-      products
-    );
+    this.cartSv.addCart(amount, this.product, this.business);
 
   }
 

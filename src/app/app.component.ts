@@ -11,6 +11,7 @@ import { LoginService } from './pages/login/services/login.service';
 export class AppComponent {
   public appPages = [
     { title: 'Cuenta', url: 'tabs/account', icon: 'person' },
+    { title: 'Ordenes', url: 'tabs/orders', icon: 'fast-food' },
     { title: 'Salir', url: undefined, icon: 'exit' },
   ];
   public defaultImg = '/assets/testImg/defaultImage.png';

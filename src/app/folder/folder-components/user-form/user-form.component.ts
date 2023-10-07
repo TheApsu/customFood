@@ -49,10 +49,11 @@ export class UserFormComponent implements OnInit {
         required: true
       },
       {
-        label: 'Fecha de nacimiento',
+        placeholder: 'Fecha de nacimiento',
         control: 'birthdayString',
         type: 'date',
-        required: true
+        required: true,
+        
       }
     ]
     this.user = this.storageSv.getLocalStorage('user');

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, PopoverController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class UiService {
     private modalController: ModalController,
     private alertCtrl: AlertController,
     private loadingController: LoadingController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private popoverController: PopoverController
   ) { }
 
   async showModal(component, componentProps?, cssClass?, backdropDismiss?){
@@ -80,6 +81,19 @@ export class UiService {
       }
     );
     await this._loading.present();
+  }
+
+  async showPopover(component, componentProps?, cssClass?, backdropDismiss?){
+    const popover = await this.popoverController.create({
+      component,
+      componentProps,
+      cssClass,
+      backdropDismiss
+    })
+
+    await popover.present();
+    const { data } = await popover.onDidDismiss();
+    return data;
   }
 
   async showToast(message){

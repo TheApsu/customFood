@@ -55,7 +55,7 @@ export class LoginService {
       const user = await this.login(result.user);
       // const currentUser = await this.auth.currentUser.getIdToken(true);
       // success.idToken = currentUser;
-      user.tokenId = success.idToken;
+      // user.tokenId = success.idToken;
       console.log(user);
       return user;
     }catch(err){
@@ -76,7 +76,9 @@ export class LoginService {
       // const currentUser = await this.auth.currentUser.getIdToken(true);
       // console.log(currentUser);
       // user.tokenId = currentUser
-      user.tokenId = await result.user.getIdToken();
+      // result.user
+      // const tokenIdResult = await result.user.getIdTokenResult(true);
+      // user.tokenId = tokenIdResult.token;
       // this._user = user;
       return user;
     }catch(err){

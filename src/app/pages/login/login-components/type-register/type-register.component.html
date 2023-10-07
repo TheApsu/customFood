@@ -1,0 +1,13 @@
+<ion-list inset>
+  <ion-list-header>
+    <ion-label>Tipo de registro</ion-label>
+  </ion-list-header>
+  <ion-item lines="none" (click)="setType('buyer')">
+    <ion-icon slot="start" name="pizza-outline"></ion-icon>
+    <ion-label>Comprador</ion-label>
+  </ion-item>
+  <ion-item lines="none" (click)="setType('business')">
+    <ion-icon slot="start" name="bicycle-outline"></ion-icon>
+    <ion-label>Tienda</ion-label>
+  </ion-item>
+</ion-list>

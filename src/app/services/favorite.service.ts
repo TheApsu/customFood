@@ -72,6 +72,7 @@ export class FavoriteService {
     let favorite = false;
     if(this.favorites){
       const store = this.favorites.find(favorite => favorite.storeId === data.storeId);
+      console.log('store :>> ', store);
       if(store){
         const product = store.products.find((product: Product) => product._id === data._id);
         favorite = !!product;

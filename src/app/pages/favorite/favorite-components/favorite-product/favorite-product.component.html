@@ -1,6 +1,7 @@
 <ion-item 
   lines="none" 
   class="favorite-product"
+  (click)="openProduct($event)"
 >
   <ion-thumbnail slot="start" class="favorite-product-img">
     <img [src]="product.imgUrl" />

@@ -40,7 +40,7 @@ export class CartCardProductComponent implements OnInit {
       productId: this.product._id,
       amount: sum ? 1 : -1
     }
-    if(this.contador <= 1){
+    if(this.contador <= 1 && !sum){
       await this.removeProduct();
     }else{
       await this.uiSv.showLoading();

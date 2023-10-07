@@ -1,0 +1,9 @@
+.item-order{
+  border-radius: .5rem;  
+  border: 1px solid transparent;
+  margin-bottom: .5rem;
+  transition: border-color .3s ease;
+  &:hover{
+    border-color: #272727;
+  }
+}

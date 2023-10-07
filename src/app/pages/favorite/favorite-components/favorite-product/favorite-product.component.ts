@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UiService } from 'src/app/general/services/ui.service';
 import { Product } from 'src/app/interface/interfaces';
+import { DetailProductComponent } from 'src/app/pages/business/componentsBusiness/detail-product/detail-product.component';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +17,8 @@ export class FavoriteProductComponent implements OnInit {
   public image = environment.testImg;
 
   constructor(
-    private favoriteSv: FavoriteService
+    private favoriteSv: FavoriteService,
+    private uiSv: UiService
   ) { }
 
   ngOnInit() {
@@ -28,6 +31,23 @@ export class FavoriteProductComponent implements OnInit {
 
   addToFavorite(){
     this.favoriteIcon = this.favoriteSv.checkToAdd(this.favoriteIcon, this.product, this.business);
+  }
 
+  async openProduct(ev){
+    if(ev.target.dataset?.favorite){
+      return
+    }
+    const { data } = await this.uiSv.showModal(
+      DetailProductComponent, 
+      { 
+        product: this.product, 
+        business: this.business 
+      }, 
+      'detailProduct',
+      false
+    );
+    if(data){
+      this.favoriteIcon = data;
+    }
   }
 }

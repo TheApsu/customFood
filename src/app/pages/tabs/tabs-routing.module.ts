@@ -55,6 +55,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'orders',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../orders/orders.module').then( m => m.OrdersPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

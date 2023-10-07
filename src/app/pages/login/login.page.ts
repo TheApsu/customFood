@@ -3,6 +3,7 @@ import { HttpService } from 'src/app/general/services/http.service';
 import { UiService } from 'src/app/general/services/ui.service';
 import { NewUser } from 'src/app/interface/interfaces';
 import { LoginService } from './services/login.service';
+import { TypeRegisterComponent } from './login-components/type-register/type-register.component';
 
 @Component({
   selector: 'app-login',
@@ -39,10 +40,10 @@ export class LoginPage implements OnInit {
         }, 450)
       }else if(ev === 'google'){
         const user = await this.loginSv.signInWithGoogle();
-    
+        console.log('user :>> ', user);
+        const newRegister = await this.setTypeRegister(user);
+        console.log('newRegister :>> ', newRegister);
         await this.uiSv.showLoading();
-        const newRegister: NewUser = await this.httpSv.login(user);
-        newRegister.tokenId = user.tokenId;
         await this.loginSv.register(newRegister);
         await this.uiSv.loading.dismiss();
 
@@ -52,4 +53,22 @@ export class LoginPage implements OnInit {
       await this.loginSv.logout();
     }
   }
+
+  async setTypeRegister(user){
+    let register: NewUser = await this.httpSv.login(user, 'buyer');
+    console.log('register :>> ', register);
+    if(register.newUser){
+      const typeUser = await this.uiSv.showPopover(
+        TypeRegisterComponent, 
+        null, 
+        '', 
+        false
+      );
+      const newRegister: NewUser = await this.httpSv.login(user, typeUser);
+      register = newRegister;
+    }
+    register.tokenId = user.tokenId;
+    return register;
+  }
+
 }
